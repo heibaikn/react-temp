@@ -1,8 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom'
 // import './index.css';
-import App from './views/home/App'
+// import App from './views/home/App'
+import getRouter from './router'
 // import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(getRouter(), document.getElementById('root'))
 // registerServiceWorker()
