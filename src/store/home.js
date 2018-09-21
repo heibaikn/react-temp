@@ -1,3 +1,3 @@
 export default {
-  sum: 0
+  count: 10
 }
