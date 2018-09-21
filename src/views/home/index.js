@@ -1,21 +1,42 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+// import logo from './logo.svg'
+import { connect } from 'react-redux'
+import { addTodo } from '../../store/actions'
+import { GetStoreSum } from '../../store/selectors'
 import './App.scss'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sum: 0
+    }
+  }
+  add = () => {
+    // console.log(this.state.sum)
+
+    // this.setState({ sum: this.state.sum + 1 })
+    this.props.addTodo(1)
+    console.log('this.props.sum', this.props.sum)
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="App-header" onClick={this.add}>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1 className="App-title">Welcome to home</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code>
-        </p>
       </div>
     )
   }
 }
-
-export default App
+const mapStateToProps = state => {
+  console.log(state)
+  let sum = GetStoreSum(state)
+  return { sum }
+}
+// export default App
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App)

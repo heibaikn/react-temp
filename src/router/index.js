@@ -1,6 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-
+import { Provider } from 'react-redux'
+import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 /** 路由配置 start */
 import Home from '../views/home/index'
 import Page1 from '../views/auth/index'
@@ -30,14 +31,14 @@ const routeConfig = routes.map((route, i) => {
 
 // 组装
 
-const getRouter = () => (
-  <Router>
-    <div>
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router>
       <Switch>{routeConfig}</Switch>
-      {/* <Switch>{routeConfig}</Switch> */}
-    </div>
-  </Router>
+    </Router>
+  </Provider>
 )
-
-export default getRouter
-// export default routeConfigi
+Root.propTypes = {
+  store: PropTypes.object.isRequired
+}
+export default Root
