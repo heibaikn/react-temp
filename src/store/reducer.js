@@ -3,10 +3,10 @@ import { createStore } from 'redux'
 import Home from './home'
 
 function counter(state = Home, action) {
-  console.log(action)
+  console.log('reducers', action, Home)
   switch (action.type) {
     case 'INCREMENT':
-      state.sum++
+      state.sum = action.payload.content
       return state
     case 'DECREMENT':
       state.sum--
