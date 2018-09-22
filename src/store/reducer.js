@@ -5,7 +5,7 @@ import Home from './home'
 
 function counter(state = Home, action) {
   const count = state.count
-  console.log(action, state)
+  // console.log(action, state)
   switch (action.type) {
     case 'increase':
       return { count: count + 1 }

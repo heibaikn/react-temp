@@ -21,8 +21,12 @@ class Counter extends Component {
     }
   }
   increase = () => {
+    // console.log(Component, this.Gloab)
     this.props.onIncreaseClick()
     this.setState({ value: this.state.value + 2 })
+  }
+  sendAjax = () => {
+    this.$http({ ac: 'getSysInfo' })
   }
   render() {
     const { value } = this.props
@@ -40,6 +44,7 @@ class Counter extends Component {
           {this.state.value}
         </div>
         <button onClick={this.increase}>Increase</button>
+        <div onClick={this.sendAjax}>sendAjax</div>
       </div>
     )
   }

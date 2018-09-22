@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 /** 路由配置 start */
 import Home from '../views/home/index'
 import Page1 from '../views/auth/index'
-console.log(Home)
+// console.log(Home)
 const routes = [
   {
     path: '/',

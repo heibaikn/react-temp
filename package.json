@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
+    "axios": "^0.18.0",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -98,5 +99,7 @@
   "devDependencies": {
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0"
-  }
+  },
+  "proxy": "http://qawap.sg04.com/request"
 }
+
