@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 function mapStateToProps(state) {
   return {
@@ -7,25 +8,38 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log(dispatch)
   return {
     onIncreaseClick: () => dispatch({ type: 'increase' })
   }
 }
 
-// Action Creator
-// const increaseAction =
-
 class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: 1
+    }
+  }
+  increase = () => {
+    this.props.onIncreaseClick()
+    this.setState({ value: this.state.value + 2 })
+  }
   render() {
-    const { value, onIncreaseClick } = this.props
+    const { value } = this.props
     return (
       <div>
+        <h3>
+          <Link to="/page1">page1</Link>
+        </h3>
         <span>
-          123+
+          store:
           {value}
         </span>
-        <button onClick={onIncreaseClick}>Increase</button>
+        <div>
+          component:
+          {this.state.value}
+        </div>
+        <button onClick={this.increase}>Increase</button>
       </div>
     )
   }
