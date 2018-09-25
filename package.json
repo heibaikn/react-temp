@@ -98,8 +98,8 @@
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
+    "prerender-spa-plugin": "^3.4.0",
     "sass-loader": "^7.1.0"
   },
   "proxy": "http://qawap.sg04.com/request"
 }
-

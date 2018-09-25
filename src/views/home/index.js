@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import './App.scss'
 function mapStateToProps(state) {
   return {
     value: state.counter.count
@@ -29,24 +30,8 @@ class Counter extends Component {
     this.$http({ ac: 'getSysInfo' })
   }
   render() {
-    const { value } = this.props
-    return (
-      <div>
-        <h3>
-          <Link to="/page1">page1</Link>
-        </h3>
-        <span>
-          store:
-          {value}
-        </span>
-        <div>
-          component:
-          {this.state.value}
-        </div>
-        <button onClick={this.increase}>Increase</button>
-        <div onClick={this.sendAjax}>sendAjax</div>
-      </div>
-    )
+    // const { value } = this.props
+    return <div className="home">banner</div>
   }
 }
 

@@ -1,23 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-/** 路由配置 start */
-import Home from '../views/home/index'
-import Page1 from '../views/auth/index'
-// console.log(Home)
-const routes = [
-  {
-    path: '/',
-    component: Home
-  },
-  {
-    path: '/page1',
-    component: Page1
-  }
-]
-/** 路由配置 end */
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import routes from './routes'
+import BaseHeader from '../components/BaseHeader'
 const routeConfig = routes.map((route, i) => {
   return (
     <Route
@@ -28,13 +14,14 @@ const routeConfig = routes.map((route, i) => {
     />
   )
 })
-
 // 组装
-
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <Switch>{routeConfig}</Switch>
+      <div>
+        <BaseHeader />
+        <Switch>{routeConfig}</Switch>
+      </div>
     </Router>
   </Provider>
 )
